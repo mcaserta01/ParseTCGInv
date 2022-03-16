@@ -39,7 +39,7 @@ class CSV_Reader:
 			if not self.validate_file():
 				raise Exception('CSVNotValid')
 			self.rows = self.get_nonempty_csv_rows()
-            self.rows = self.get_Prices()
+            		self.rows = self.get_Prices()
 		except Exception as exc:
 			logging.critical(exc)
 			raise exc
