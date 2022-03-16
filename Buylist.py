@@ -39,6 +39,7 @@ class CSV_Reader:
 			if not self.validate_file():
 				raise Exception('CSVNotValid')
 			self.rows = self.get_nonempty_csv_rows()
+            self.rows = self.get_Prices()
 		except Exception as exc:
 			logging.critical(exc)
 			raise exc
@@ -63,7 +64,6 @@ class CSV_Reader:
 
 	def validate_file(self):
 		"""Validates headers inside csv
-
 		Returns:
 			bool: True if headers are valid, False if not
 		"""
@@ -93,6 +93,28 @@ class CSV_Reader:
 			rows.append(row_dat)
 		print("")
 		return rows
+        
+    def get_prices(self):
+        rows = []
+        price = cash = credit = 0
+        print("Generating Prices",end="")
+        for i,row in enumerate(self.csv):
+            if not (i%1000):
+                print(".",end="")
+            row_dat = {}
+            if row["TCGplayer Id"] = "TCGplayer Id":
+                continue
+            price = row["TCG Market Price"]
+            cash = price*.55-1
+            credit = price*.65-1
+            for header in row.keys():
+                clean_header = self.clean_single_header(header)
+				row_dat[clean_header] = row[header]
+            row_dat["Title"] = cash
+            row_dat["Number"] = credit
+            rows.append(row_dat)
+        print("")
+        return rows
 
 		
 def main():
