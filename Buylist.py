@@ -94,27 +94,27 @@ class CSV_Reader:
 		print("")
 		return rows
         
-    def get_prices(self):
-        rows = []
-        price = cash = credit = 0
-        print("Generating Prices",end="")
-        for i,row in enumerate(self.csv):
-            if not (i%1000):
-                print(".",end="")
-            row_dat = {}
-            if row["TCGplayer Id"] == "TCGplayer Id":
-                continue
-            price = row["TCG Market Price"]
-            cash = price*.55-1
-            credit = price*.65-1
-            for header in row.keys():
-                clean_header = self.clean_single_header(header)
-		row_dat[clean_header] = row[header]
-            row_dat["Title"] = cash
-            row_dat["Number"] = credit
-            rows.append(row_dat)
-        print("")
-        return rows
+    	def get_prices(self):
+        	rows = []
+        	price = cash = credit = 0
+        	print("Generating Prices",end="")
+        	for i,row in enumerate(self.csv):
+            		if not (i%1000):
+                		print(".",end="")
+            		row_dat = {}
+            		if row["TCGplayer Id"] == "TCGplayer Id":
+                		continue
+            		price = row["TCG Market Price"]
+            		cash = price*.55-1
+            		credit = price*.65-1
+            		for header in row.keys():
+                		clean_header = self.clean_single_header(header)
+				row_dat[clean_header] = row[header]
+            		row_dat["Title"] = cash
+            		row_dat["Number"] = credit
+            		rows.append(row_dat)
+        	print("")
+        	return rows
 
 		
 def main():
