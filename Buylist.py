@@ -38,7 +38,6 @@ class CSV_Reader:
 			self.csv = csv.DictReader(csv_file)
 			if not self.validate_file():
 				raise Exception('CSVNotValid')
-			self.rows = self.get_nonempty_csv_rows()
             		self.rows = self.get_prices()
 		except Exception as exc:
 			logging.critical(exc)
@@ -92,18 +91,18 @@ class CSV_Reader:
 		print("")
 		return rows
         
-    	def get_prices(self):
-        	rows = []
-        	price = 0
+	def get_prices(self):
+		rows = []
+		price = 0
 		cash = 0
 		credit = 0
-        	print("Generating Prices",end="")
-        	for i,row in enumerate(self.csv):
-            		if not (i%1000):
-                		print(".",end="")
-            		row_dat = {}
-            		if row["TCGplayer Id"] == "TCGplayer Id":
-                		continue
+		print("Generating Prices",end="")
+ 		for i,row in enumerate(self.csv):
+ 			if not (i%1000):
+				print(".",end="")
+			row_dat = {}
+			if row["TCGplayer Id"] == "TCGplayer Id":
+				continue
             		price = row["TCG Market Price"]
             		cash = price*.55-1
             		credit = price*.65-1
