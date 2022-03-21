@@ -60,10 +60,10 @@ class CSV_Reader:
 
 
     def validate_file(self):
-		"""Validates headers inside csv
-		Returns:
-			bool: True if headers are valid, False if not
-		"""
+        """Validates headers inside csv
+            Returns:
+                bool: True if headers are valid, False if not
+        """
         headers = self.clean_headers(self.csv.fieldnames)
         return set(self.required_headers).issubset(headers)
 
