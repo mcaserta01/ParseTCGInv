@@ -94,7 +94,9 @@ class CSV_Reader:
         
     	def get_prices(self):
         	rows = []
-        	price = cash = credit = 0
+        	price = 0
+		cash = 0
+		credit = 0
         	print("Generating Prices",end="")
         	for i,row in enumerate(self.csv):
             		if not (i%1000):
