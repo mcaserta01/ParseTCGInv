@@ -49,15 +49,13 @@ class CSV_Reader:
 		return self.clean_headers(self.csv.fieldnames)
 
 	def clean_single_header(self, header):
-		clean_header = header.encode('ascii',
-									 errors='ignore').decode('utf-8')
+		clean_header = header.encode('ascii', errors='ignore').decode('utf-8')
 		return clean_header
 
 	def clean_headers(self, headers):
 		clean_headers = []
 		for header in headers:
-			clean_header = header.encode('ascii',
-										 errors='ignore').decode('utf-8')
+			clean_header = header.encode('ascii', errors='ignore').decode('utf-8')
 			clean_headers.append(clean_header)
 		return clean_headers
 
